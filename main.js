@@ -1,4 +1,6 @@
 song1 = "";
+scoreRightWrist = 0;
+scoreLeftWrist = 0;
 song2 = "";
 leftWristX = 0;
 leftWristY = 0;
@@ -28,6 +30,30 @@ function modelLoaded()
 function draw()
 {
     image(video, 0, 0, 600, 500);
+    song1_status = song1.isPlaying();
+    song2_status = song2.isPlaying();
+    fill("#FF0000")
+    stroke("#FF0000")
+    if(scoreRightWrist > 0.5)
+    {
+        circle(leftWristX,leftWristY,20);
+        song2.stop();
+        if(song1_status == false)
+        {
+            song1.play();
+            document.getElementById("song").innerHTML = "playing Harry Potter Theme Song";
+        }
+    }
+    if(scoreLeftWrist > 0.5)
+    {
+        circle(leftWristX,leftWristY,20);
+        song1.stop();
+        if(song2_status == false)
+        {
+            song2.play();
+            document.getElementById("song");
+        }
+    }
 }
 
 function play()
