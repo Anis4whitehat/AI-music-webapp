@@ -1,3 +1,5 @@
+song1_status = "";
+song2_status = "";
 song1 = "";
 scoreRightWrist = 0;
 scoreLeftWrist = 0;
@@ -68,9 +70,11 @@ function gotPoses(results)
     if(results.length > 0)
     {
         console.log(results)
+        scoreRightWrist = results[0].pose.keypoints[10].score;
+        scoreLeftWrist = results[0].pose.keypoints[9].score;
         leftWristX = results[0].pose.leftWrist.x;
         leftWristY = results[0].pose.leftWrist.y;
-        rightWristX = results[0].pose.righttWrist.x;
+        rightWristX = results[0].pose.rightWrist.x;
         rightWristY = results[0].pose.rightWrist.y;
     }
 }
